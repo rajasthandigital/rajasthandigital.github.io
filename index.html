@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0a09">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rajasthan Digital">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg">
+<title>Rajasthan Digital</title>
+<style>
+:root{--bg:#090807;--surface:#151310;--surface2:#1b1814;--ivory:#f3ecdf;--gold:#caa76b;--muted:#a69e92;--line:#2c2822}
+*{box-sizing:border-box}html,body{margin:0;background:#050504;color:var(--ivory);font-family:Arial,Helvetica,sans-serif}body{min-height:100vh}
+.app{max-width:430px;min-height:100vh;margin:auto;background:var(--bg);position:relative;overflow:hidden}
+.page{display:none;padding:env(safe-area-inset-top) 20px calc(92px + env(safe-area-inset-bottom));min-height:100vh}.page.active{display:block}
+.serif{font-family:Georgia,"Times New Roman",serif;font-weight:400}.gold{color:var(--gold)}.eyebrow{font-size:10px;letter-spacing:2.8px;color:var(--gold);font-weight:700}
+.header{height:62px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Georgia,serif;letter-spacing:1px;font-size:17px}.header button,.back{border:0;background:none;color:var(--ivory);font-size:22px;padding:8px;cursor:pointer}
+.hero{padding-top:8vh}.logoMark{width:90px;height:90px;border:1px solid #735d3b;border-radius:50%;display:grid;place-items:center;margin:0 auto 28px;font:58px Georgia,serif;color:var(--gold);letter-spacing:-12px;padding-right:10px}
+.center{text-align:center}.title{font:48px/.88 Georgia,serif;letter-spacing:1px;margin:18px 0}.tag{font-size:9px;letter-spacing:3px;color:var(--gold)}.rule{width:48px;height:1px;background:var(--gold);margin:28px auto}.smallcaps{font-size:10px;letter-spacing:2.5px;color:var(--muted);line-height:2}
+.btn{width:100%;border:1px solid var(--ivory);background:var(--ivory);color:#17130e;border-radius:12px;padding:16px;font-weight:700;letter-spacing:1.2px;font-size:11px;cursor:pointer}.btn.secondary{background:var(--surface);border-color:var(--line);color:var(--ivory)}
+h1{font:43px/.96 Georgia,serif;margin:15px 0}h2{font:37px/.95 Georgia,serif;margin:12px 0 16px}p{font-size:14px;line-height:1.65;color:var(--muted)}
+.section{margin-top:34px}.sectionHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.sectionHead span{font-size:10px;letter-spacing:2px;color:var(--gold)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.card{background:var(--surface);border:1px solid #24201b;border-radius:13px;padding:16px;min-height:128px;cursor:pointer}.num{font-size:9px;letter-spacing:2px;color:var(--gold)}.card h3{font-size:12px;line-height:1.35;margin:16px 0 8px;letter-spacing:.6px}.card p{font-size:11px;line-height:1.45;margin:0}
+.work{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px;cursor:pointer}.visual{height:155px;background:radial-gradient(circle at 70% 25%,#6d5130 0,#2d2218 18%,#12100d 58%,#090807 100%);position:relative;display:grid;place-items:center}.visual:after{content:"";width:66px;height:66px;border:1px solid #b38e58;border-radius:50%;position:absolute}.play{z-index:1;font-size:20px;color:var(--ivory)}.workInfo{padding:13px 15px}.workInfo strong{font:24px Georgia,serif}.workInfo small{display:block;color:var(--muted);margin-top:5px}
+.filters{display:flex;gap:7px;overflow:auto;padding-bottom:5px}.filter{white-space:nowrap;background:none;border:1px solid var(--line);color:var(--muted);border-radius:20px;padding:8px 12px;font-size:9px;letter-spacing:1px}.filter.active{background:var(--ivory);color:#17130e;border-color:var(--ivory)}
+.check{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}.check b{color:var(--gold);font-weight:400}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 16px;margin-top:24px}.contact a{display:flex;justify-content:space-between;padding:16px 0;color:var(--ivory);text-decoration:none;font-size:11px;letter-spacing:1px}.contact a+a{border-top:1px solid var(--line)}
+.bottom{position:fixed;z-index:10;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);padding:8px 4px calc(8px + env(safe-area-inset-bottom));background:rgba(9,8,7,.97);border-top:1px solid var(--line);display:flex;justify-content:space-around}.nav{border:0;background:none;color:#756f66;font-size:8px;letter-spacing:.5px;padding:7px 10px;cursor:pointer}.nav.active{color:var(--gold)}.nav span{display:block;font-size:18px;margin-bottom:3px}
+.install{display:none;position:fixed;z-index:30;bottom:84px;left:50%;transform:translateX(-50%);width:min(390px,calc(100% - 32px));background:var(--ivory);color:#17130e;border-radius:13px;padding:14px 16px;box-shadow:0 12px 40px #000}.install.show{display:flex;justify-content:space-between;align-items:center;gap:10px}.install button{border:0;background:none;font-weight:700}
+@media(min-width:700px){body{padding:20px}.app{border-radius:28px;box-shadow:0 0 60px #000}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<section class="page active" id="welcome">
+  <div class="hero center">
+    <div class="logoMark">RD</div>
+    <div class="tag">PROFESSIONAL VIDEO EDITING STUDIO</div>
+    <h1 class="title">RAJASTHAN<br><span class="gold">DIGITAL</span></h1>
+    <div class="rule"></div>
+    <div class="smallcaps">CRAFTING EMOTIONS.<br>TELLING STORIES.<br>MAKING MEMORIES TIMELESS.</div>
+    <div style="height:55px"></div>
+    <button class="btn" onclick="show('home')">WELCOME&nbsp;&nbsp;→</button>
+  </div>
+</section>
+
+<section class="page" id="home">
+  <div class="header"><button onclick="menu()">☰</button><div class="brand">RAJASTHAN DIGITAL</div><button onclick="show('contact')">⌕</button></div>
+  <div class="eyebrow">PROFESSIONAL VIDEO EDITING</div>
+  <h1>We don't just edit,<br>we bring your <i class="gold">story</i> to life.</h1>
+  <p>Professional video editing crafted with precision, emotion and a cinematic touch.</p>
+  <button class="btn" onclick="show('contact')">LET'S TALK ABOUT YOUR PROJECT&nbsp;&nbsp;→</button>
+
+  <div class="section"><div class="sectionHead"><span>OUR EDITING SERVICES</span><span onclick="show('services')">VIEW ALL →</span></div><div class="grid" id="homeServices"></div></div>
+  <div class="section"><div class="sectionHead"><span>SELECTED WORK</span><span onclick="show('portfolio')">VIEW ALL →</span></div><div id="homeWork"></div></div>
+</section>
+
+<section class="page" id="services">
+  <div class="header"><button class="back" onclick="show('home')">←</button><div class="brand">RAJASTHAN DIGITAL</div><span></span></div>
+  <div class="eyebrow">WHAT WE DO</div><h2>Our<br><span class="gold">Services</span></h2><p>Editing crafted around your story, footage and vision.</p>
+  <div class="section"><div class="grid" id="allServices"></div></div>
+</section>
+
+<section class="page" id="detail">
+  <div class="header"><button class="back" onclick="show('services')">←</button><div class="brand" id="detailTop">SERVICE</div><span></span></div>
+  <div class="eyebrow">OUR SERVICE</div><h2 id="detailTitle"></h2><p id="detailDesc"></p>
+  <div class="section"><div class="eyebrow">WHAT'S INCLUDED</div><div id="detailList"></div></div>
+  <div class="section"><div class="eyebrow">SEE THE STYLE</div><div id="detailWork"></div></div>
+  <button class="btn" onclick="show('contact')">CONTACT US FOR YOUR PROJECT&nbsp;&nbsp;→</button>
+</section>
+
+<section class="page" id="portfolio">
+  <div class="header"><button onclick="show('home')">←</button><div class="brand">RAJASTHAN DIGITAL</div><button onclick="show('contact')">⌕</button></div>
+  <div class="eyebrow">SELECTED WORK</div><h2>A Glimpse of<br>Our <i class="gold">Work</i></h2>
+  <div class="filters" id="filters"></div>
+  <div class="section" id="portfolioWork"></div>
+</section>
+
+<section class="page" id="project">
+  <div class="header"><button class="back" onclick="show('portfolio')">←</button><div class="brand">PROJECT</div><span></span></div>
+  <div class="visual" style="height:235px"><div class="play">▶</div></div>
+  <div class="section" style="margin-top:22px"><div class="eyebrow" id="projectCat"></div><h2 id="projectTitle"></h2><p id="projectDesc"></p></div>
+  <div class="section"><div class="eyebrow">THE APPROACH</div><p class="serif" style="font-size:28px;color:var(--ivory)">“Every frame should make the story feel closer.”</p></div>
+  <button class="btn" onclick="show('contact')">WANT YOUR STORY TO LOOK LIKE THIS?&nbsp;&nbsp;→</button>
+</section>
+
+<section class="page" id="about">
+  <div class="header"><button class="back" onclick="show('home')">←</button><div class="brand">RAJASTHAN DIGITAL</div><span></span></div>
+  <div class="eyebrow">THE STUDIO</div><h2>About<br><span class="gold">Rajasthan Digital</span></h2>
+  <p class="serif" style="font-size:28px;color:var(--ivory)">We transform raw footage into meaningful visual stories.</p>
+  <p>Every project has its own emotion, rhythm and personality. Our approach is to understand the story first, then craft the edit around it.</p>
+  <div class="check"><b>01</b><span><strong>STORY</strong><br><small>Every edit begins with the story.</small></span></div>
+  <div class="check"><b>02</b><span><strong>DETAIL</strong><br><small>Every frame matters.</small></span></div>
+  <div class="check"><b>03</b><span><strong>EMOTION</strong><br><small>The final film should make you feel something.</small></span></div>
+  <div class="check"><b>04</b><span><strong>CRAFT</strong><br><small>Professional editing with attention to detail.</small></span></div>
+</section>
+
+<section class="page" id="contact">
+  <div class="header"><button class="back" onclick="show('home')">←</button><div class="brand">RAJASTHAN DIGITAL</div><span></span></div>
+  <div class="hero" style="padding-top:4vh"><div class="eyebrow">START A CONVERSATION</div><h2>Let's create<br>something <i class="gold">beautiful.</i></h2>
+  <p>Have a project in mind? Contact Rajasthan Digital and let's discuss your editing requirements.</p>
+  <div class="contact">
+    <a href="https://wa.me/917014737899" target="_blank"><span>WHATSAPP · +91 70147 37899</span><span class="gold">→</span></a>
+    <a href="tel:+917014737899"><span>CALL · +91 70147 37899</span><span class="gold">→</span></a>
+    <a href="tel:+917014874290"><span>CALL · +91 70148 74290</span><span class="gold">→</span></a>
+    <a href="https://instagram.com/raw_editor" target="_blank"><span>INSTAGRAM · @raw_editor</span><span class="gold">→</span></a>
+  </div>
+  <div class="section center"><div class="eyebrow">STUDIO</div><p>Near Old Bus Stand, Sheoganj, Sirohi, Rajasthan</p></div>
+  </div>
+</section>
+
+<nav class="bottom" id="nav" style="display:none">
+  <button class="nav" data-id="home" onclick="show('home')"><span>⌂</span>HOME</button>
+  <button class="nav" data-id="services" onclick="show('services')"><span>✦</span>SERVICES</button>
+  <button class="nav" data-id="portfolio" onclick="show('portfolio')"><span>▶</span>PORTFOLIO</button>
+  <button class="nav" data-id="contact" onclick="show('contact')"><span>◯</span>CONTACT</button>
+</nav>
+<div class="install" id="install"><span><b>Rajasthan Digital</b><br><small>Add to your home screen</small></span><button onclick="installApp()">INSTALL</button><button onclick="dismissInstall()">×</button></div>
+</div>
+
+<script>
+const services=[
+["01","CINEMATIC EDITING","Story-driven cinematic films."],
+["02","WEDDING EDITING","Elegant wedding films that preserve every emotion."],
+["03","REELS EDITING","Short-form edits designed to capture attention."],
+["04","HIGHLIGHT FILMS","The most meaningful moments, beautifully crafted."],
+["05","FULL-LENGTH WEDDING FILMS","Complete wedding storytelling."],
+["06","TRAILER & TEASER","Powerful short films designed to create anticipation."],
+["07","COLOR GRADING","Professional color treatment for mood and tone."],
+["08","MONTAGE EDITING","Moments, music and rhythm brought together."],
+["09","SOCIAL MEDIA VIDEOS","Clean, engaging edits for social platforms."]
+];
+const projects=[
+["WEDDING","Wedding Film","Romantic · Elegant · Timeless","A cinematic wedding story crafted around emotion, atmosphere and authentic moments."],
+["CINEMATIC","Cinematic Film","Story · Emotion · Cinematic","A visual story built with deliberate pacing, music and cinematic color."],
+["WEDDING","Highlight Film","Moments · Emotions · Magic","The feeling of the day distilled into a memorable highlight."],
+["REELS","Reels Edit","Short · Stylish · Impactful","A sharp social edit built around rhythm, movement and attention."],
+["TEASER","Couple Teaser","Elegant · Dramatic · Modern","A teaser designed to create anticipation for the full story."]
+];
+const inc={
+"CINEMATIC EDITING":["Story-driven editing","Smooth pacing & transitions","Color grading & tone matching","Music synchronization","Sound design & enhancement","Cinematic finishing"],
+"WEDDING EDITING":["Wedding story construction","Highlight film editing","Full-length film editing","Music & speech synchronization","Color grading","Audio enhancement"],
+"REELS EDITING":["Beat-synced cuts","Dynamic pacing","Clean transitions","Captions & text","Social-media formatting","Color enhancement"]
+};
+const $=id=>document.getElementById(id);
+function serviceCards(a){return a.map(s=>`<div class="card" onclick="openService('${s[1]}')"><div class="num">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join("")}
+function workCards(a){return a.map(p=>`<div class="work" onclick="openProject(${projects.indexOf(p)})"><div class="visual"><div class="play">▶</div></div><div class="workInfo"><strong>${p[1]}</strong><small>${p[2]}</small></div></div>`).join("")}
+$("homeServices").innerHTML=serviceCards(services.slice(0,6));
+$("allServices").innerHTML=serviceCards(services);
+$("homeWork").innerHTML=workCards(projects.slice(0,2));
+function show(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));$(id).classList.add("active");
+ $("nav").style.display=["welcome","detail","project","about"].includes(id)?"none":"flex";
+ document.querySelectorAll(".nav").forEach(n=>n.classList.toggle("active",n.dataset.id===id));
+ scrollTo(0,0);
+}
+function openService(name){
+ if(!inc[name]) name="CINEMATIC EDITING";
+ $("detailTop").textContent=name;
+ $("detailTitle").innerHTML=name.replace(" EDITING","<br>Editing");
+ const desc={
+ "CINEMATIC EDITING":"We transform your footage into a cinematic visual story. Every frame is crafted with precision, emotion and a storytelling touch.",
+ "WEDDING EDITING":"Your wedding deserves more than a collection of clips. We craft every moment into a timeless story filled with emotion and atmosphere.",
+ "REELS EDITING":"Fast, stylish and engaging edits designed to turn your footage into content people want to watch."
+ }[name];
+ $("detailDesc").textContent=desc;
+ $("detailList").innerHTML=inc[name].map(x=>`<div class="check"><b>✓</b>${x}</div>`).join("");
+ const cat=name==="WEDDING EDITING"?"WEDDING":name==="REELS EDITING"?"REELS":"CINEMATIC";
+ $("detailWork").innerHTML=workCards(projects.filter(p=>p[0]===cat).slice(0,2));
+ show("detail");
+}
+function openProject(i){const p=projects[i];$("projectCat").textContent=p[0];$("projectTitle").textContent=p[1];$("projectDesc").textContent=p[3];show("project")}
+function renderFilter(cat){
+ document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+ $("portfolioWork").innerHTML=workCards(cat==="ALL"?projects:projects.filter(p=>p[0]===cat));
+}
+$("filters").innerHTML=["ALL","WEDDING","CINEMATIC","REELS","TEASER"].map(c=>`<button class="filter ${c==="ALL"?"active":""}" data-cat="${c}" onclick="renderFilter('${c}')">${c}</button>`).join("");
+renderFilter("ALL");
+function menu(){show("about")}
+let deferredPrompt;
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;$("install").classList.add("show")});
+function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null}$("install").classList.remove("show")}
+function dismissInstall(){$("install").classList.remove("show")}
+if("serviceWorker"in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>

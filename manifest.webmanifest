@@ -1,0 +1,18 @@
+{
+  "name": "Rajasthan Digital",
+  "short_name": "Rajasthan Digital",
+  "description": "Professional Video Editing Studio",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090807",
+  "theme_color": "#0b0a09",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
